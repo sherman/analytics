@@ -5,3 +5,5 @@ theme: jekyll-theme-cayman
 exclude:
   - alrosa.Rmd
   - functions.R
+url: sherman.github.io
+baseurl: /anaylytics
