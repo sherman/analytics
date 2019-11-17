@@ -1,0 +1,21 @@
+---
+title: "Alrosa"
+output: html_notebook
+---
+
+# Libraries
+```{r}
+library("ggplot2")
+library("reshape2")
+library("ggfortify")
+library("tidyverse")
+
+source("functions.R")
+```
+
+
+# Basic observation of the data Alrosa/Revenue
+
+```{r}
+revenuePlot("~/work/analytics/data/alrosa/revenue.csv")
+```
