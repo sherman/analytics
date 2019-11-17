@@ -1,4 +1,4 @@
 ### Analytics
 
-[Alrosa Revenue/Net profit](alrosa.nb.html)
+[Alrosa Revenue/Net profit](alrosa.html)
 

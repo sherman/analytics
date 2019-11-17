@@ -1,7 +1,23 @@
 ---
 title: "Alrosa"
-output: html_notebook
+output:
+  html_document:
+    self_contained: no
 ---
+
+<style type="text/css">
+.main-container {
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(message = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+```
 
 # Libraries
 ```{r}
@@ -16,6 +32,6 @@ source("functions.R")
 
 # Basic observation of the data Alrosa/Revenue
 
-```{r, fig.width = 20}
+```{r, fig.width = 15}
 revenuePlot("data/alrosa/revenue.csv")
 ```
