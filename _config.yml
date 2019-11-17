@@ -2,3 +2,6 @@ title: Analytics
 author: Denis Gabaydulin
 description: 
 theme: jekyll-theme-cayman
+exclude:
+  - alrosa.Rmd
+  - functions.R

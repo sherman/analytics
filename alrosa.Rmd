@@ -17,5 +17,5 @@ source("functions.R")
 # Basic observation of the data Alrosa/Revenue
 
 ```{r}
-revenuePlot("~/work/analytics/data/alrosa/revenue.csv")
+revenuePlot("data/alrosa/revenue.csv")
 ```
