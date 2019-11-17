@@ -22,7 +22,7 @@ title: Analytics
 email: gabaden@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   TBD
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/analytics" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  sherman
 
