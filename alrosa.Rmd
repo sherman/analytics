@@ -16,6 +16,6 @@ source("functions.R")
 
 # Basic observation of the data Alrosa/Revenue
 
-```{r}
+```{r, fig.width = 20}
 revenuePlot("data/alrosa/revenue.csv")
 ```
