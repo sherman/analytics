@@ -2,7 +2,7 @@
 title: "Alrosa"
 output:
   html_document:
-    self_contained: no
+    self_contained: yes
 ---
 
 <style type="text/css">
