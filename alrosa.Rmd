@@ -35,21 +35,12 @@ data <-read.csv("data/alrosa/revenue.csv", sep = ",")
   
 # avoid sorting
 data$Dt <- factor(data$Dt, levels = data$Dt)
-data
   
 df <- data
-
-revenuePlot(df)
-
 ```
 
 # Basic observation of the data Alrosa/Revenue
 
 ```{r, fig.width = 15}
-#revenuePlot("data/alrosa/revenue.csv")
-
-
-  
-
-
+revenuePlot(df)
 ```
