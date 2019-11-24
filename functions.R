@@ -23,7 +23,7 @@ revenuePlot <- function(df) {
   
   breaks <- pretty(melt(df, id = "Dt")$value, n = 20)
   
-  ggplot(data = df) +
+  p <- ggplot(data = df) +
     geom_bar(stat = "identity", aes(x = Dt, y = Revenue, fill = "Revenue"), col = I("black"), position = "dodge") +
     geom_bar(stat = "identity", aes(x = Dt, y = Net.Profit, fill = factor(ifelse(isHighlighted(Dt), "Net.Profit.Last", "Net.Profit"))), col = I("black"), position = "dodge") +
     theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5, color = "#000000")) +
@@ -31,4 +31,10 @@ revenuePlot <- function(df) {
     scale_y_continuous(breaks = breaks, labels = numberFormatter) +
     geom_text(aes(x = Dt, y = Revenue, label = numberFormatter(Revenue)), size = 4, position = position_stack(vjust = 1.2), angle = 90, color = "#003366") +
     labs(y = "Revenue, Net Profit", title = "Revenue/Net Profit")
+  p
+}
+
+revenuePlotInteractive <- function(revenuePlot) {
+  p <- ggplotly(revenuePlot)
+  p
 }
