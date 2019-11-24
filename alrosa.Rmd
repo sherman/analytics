@@ -42,8 +42,8 @@ df <- data
 
 # Basic observation of the data Alrosa/Revenue
 
-```{r, fig.width = 15}
+```{r, fig.width = 20}
 p <- revenuePlot(df)
-link <- revenuePlotInteractive(p)
-link
+pp <- revenuePlotInteractive(p)
+pp
 ```
