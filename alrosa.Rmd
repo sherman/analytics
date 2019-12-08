@@ -47,3 +47,89 @@ p <- revenuePlot(df)
 pp <- revenuePlotInteractive(p)
 pp
 ```
+# Getting sql
+```{r}
+
+template <- "insert into TimeMetrics (emitent_id, metrics_id, value, dt) values (_emitent_id_, _metrics_id_, _value_, '_dt_');";
+
+template <- gsub("_emitent_id_", "1", template)
+template <- gsub("_metrics_id_", "1", template)
+
+sql = c()
+
+for(i in 1:nrow(df)) {
+    row <- df[i,]
+    
+    dt <- unlist(strsplit(as.character(row$Dt), ' '))
+    quarter = trimws(as.character(dt[1]))
+    year = trimws(as.character(dt[3]))
+    
+    fixedDt = 'n/a';
+    if (quarter == '1') {
+      fixedDt <- paste(year, '-03-01', sep = '')
+    }
+    
+    if (quarter == '2') {
+      fixedDt <- paste(year, '-06-01', sep = '')
+    }
+    
+    if (quarter == '3') {
+      fixedDt <- paste(year, '-09-01', sep = '')
+    }
+    
+    if (quarter == '4') {
+      fixedDt <- paste(year, '-12-01', sep = '')
+    }
+    
+    insert = gsub("_value_", row$Revenue, template)
+    insert = gsub("_dt_", fixedDt, insert)
+    sql <- c(sql, insert)
+}
+ 
+fileConn <- file("revenue")
+writeLines(sql, fileConn)
+close(fileConn)
+
+```
+
+```{r}
+template <- "insert into TimeMetrics (emitent_id, metrics_id, value, dt) values (_emitent_id_, _metrics_id_, _value_, '_dt_');";
+
+template <- gsub("_emitent_id_", "1", template)
+template <- gsub("_metrics_id_", "2", template)
+
+sql = c()
+
+for(i in 1:nrow(df)) {
+    row <- df[i,]
+    
+    dt <- unlist(strsplit(as.character(row$Dt), ' '))
+    quarter = trimws(as.character(dt[1]))
+    year = trimws(as.character(dt[3]))
+    
+    fixedDt = 'n/a';
+    if (quarter == '1') {
+      fixedDt <- paste(year, '-03-01', sep = '')
+    }
+    
+    if (quarter == '2') {
+      fixedDt <- paste(year, '-06-01', sep = '')
+    }
+    
+    if (quarter == '3') {
+      fixedDt <- paste(year, '-09-01', sep = '')
+    }
+    
+    if (quarter == '4') {
+      fixedDt <- paste(year, '-12-01', sep = '')
+    }
+    
+    insert = gsub("_value_", row$Net.Profit, template)
+    insert = gsub("_dt_", fixedDt, insert)
+    sql <- c(sql, insert)
+}
+ 
+fileConn <- file("net.profit")
+writeLines(sql, fileConn)
+close(fileConn)
+```
